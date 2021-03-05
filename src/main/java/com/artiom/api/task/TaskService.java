@@ -2,6 +2,8 @@ package com.artiom.api.task;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskService {
 
@@ -14,5 +16,9 @@ public class TaskService {
     public String saveTask(Task task){
         taskRepo.save(task);
         return "Сохранено";
+    }
+
+    public List<Task> getAllTasks(){
+        return taskRepo.findAll();
     }
 }

@@ -1,9 +1,11 @@
 package com.artiom.api.task;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
 @CrossOrigin
 public class TaskController {
 
@@ -11,6 +13,17 @@ public class TaskController {
 
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
+    }
+
+    @PostMapping("/addTask")
+    public String addTask(@RequestBody Task task){
+        taskService.saveTask(task);
+        return "Успешно сохранено";
+    }
+
+    @GetMapping("/allTasks")
+    public List<Task> allTasks(){
+        return taskService.getAllTasks();
     }
 
 
