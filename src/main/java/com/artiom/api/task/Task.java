@@ -1,6 +1,7 @@
 package com.artiom.api.task;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Task {
@@ -13,18 +14,64 @@ public class Task {
     @Column(columnDefinition = "text")
     private String task;
 
-    public Task(String name, String task) {
+    private Date date;
+
+    private String city;
+    private Integer age;
+    private String genre;
+
+    public Task(String name, String task, Date date, String city, Integer age, String genre) {
         this.name = name;
         this.task = task;
+        this.date = date;
+        this.city = city;
+        this.age = age;
+        this.genre = genre;
+    }
+
+    public Task(Long id, String name, String task, Date date, String city, Integer age, String genre) {
+        this.id = id;
+        this.name = name;
+        this.task = task;
+        this.date = date;
+        this.city = city;
+        this.age = age;
+        this.genre = genre;
     }
 
     public Task() {
     }
 
-    public Task(Long id, String name, String task) {
-        this.id = id;
-        this.name = name;
-        this.task = task;
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Long getId() {
